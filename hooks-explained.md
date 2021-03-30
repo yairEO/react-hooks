@@ -131,6 +131,8 @@ import React, { useState, useEffect, useCallback, ... } from 'react'
 | `useEffect`      | `useMemo`           | `useContext`            | `useImperativeHandle` |
 |                  | `useRef`            |                         | `useDebugValue`       |
 
+<br><br>
+
 ### `useState` - Basic state
 
 #### Define component-level state
@@ -140,8 +142,6 @@ const Example = ({ value = 1 }) => {
   const [myState, setMyState] = useState(value)
 }
 ```
-
-<br><br>
 
 Can set as many `useState` as you want
 

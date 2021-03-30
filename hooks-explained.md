@@ -299,7 +299,7 @@ https://github.com/rehooks/awesome-react-hooks
 <table>
 <tr>
   <th>Hook</th>
-  <th>Cmoponent</th>
+  <th>Component</th>
 </tr>
 <tr>
 <td>

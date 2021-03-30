@@ -296,19 +296,26 @@ Share hooks' logic which is used (or might be used) in more than one component. 
 
 https://github.com/rehooks/awesome-react-hooks
 
-### Hook
+<table>
+<tr>
+  <th>Hook</th>
+  <th>Cmoponent</th>
+</tr>
+<tr>
+<td>
+
 ```js
 function useKeyPress( targetKey ) {
-  // State for keeping track of whether key is pressed
+  // keeping track of whether key is pressed
   const [keyPressed, setKeyPressed] = useState(false)
 
-  // If pressed key is our target key then set to true
+  // If pressed key is our target key - set to true
   function downHandler({ key }) {
     if (key === targetKey) 
       setKeyPressed(true)
   }
 
-  // If released key is our target key then set to false
+  // If released key is our target key - set to false
   const upHandler = ({ key }) => {
     if (key === targetKey) 
       setKeyPressed(false)
@@ -321,8 +328,8 @@ function useKeyPress( targetKey ) {
     
     // Remove event listeners on cleanup
     return () => {
-      window.removeEventListener('keydown', downHandler);
-      window.removeEventListener('keyup', upHandler);
+      window.removeEventListener('keydown', downHandler)
+      window.removeEventListener('keyup', upHandler)
     };
   }, [])
 
@@ -332,28 +339,28 @@ function useKeyPress( targetKey ) {
 export default useKeyPress
 ```
 
-### Component
+</td>
+<td valign="top">
+
 ```js
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import useKeyPress from './useKeyPress'
 
 // Usage
 function App() {
-  // Call our hook for each key that we'd like to monitor
-  const happyPress = useKeyPress('h');
-  const sadPress = useKeyPress('s');
-  const robotPress = useKeyPress('r');
-  const foxPress = useKeyPress('f');
+  // Call hook for each key that we'd like to monitor
+  const happyPress = useKeyPress('enter')
+  const escPress = useKeyPress('esc')
 
-  return (
-    <div>
-      <div>h, s, r, f</div>
-      <div>
-        {happyPress && '😊'}
-        {sadPress && '😢'}
-        {robotPress && '🤖'}
-        {foxPress && '🦊'}
-      </div>
-    </div>
-  );
+  return <div>
+      {happyPress && '😊'}
+      {escPress && '😢'}
+  </div>
 }
 ```
+
+</td>
+</tr>
+</table>
+
+

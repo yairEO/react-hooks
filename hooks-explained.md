@@ -207,6 +207,8 @@ const Example = ({ data = [], getServerData, id }) => {
 
 ### `useCallback` - memoization of functions
 
+Useful when definding function which will be passed down as props (to children components)
+
 ```js
 const Example = ({ value = 1 }) => {
   const [counter, setCounter] = useState(value) // optional initial value
@@ -221,4 +223,56 @@ const Example = ({ value = 1 }) => {
   // callback every time the <Example> component is re-rendred.
   return <Child onClick={update} />
 }
+```
+
+### `useMemo` - memoization of values returned by a function (similar to `useCallback`)
+
+Useful for expensive computations or to simply persist things across renders.
+
+```js
+const Example = ({ data, sortComparator, filterPredicate }) => {
+  const transformedData = useMemo(() => {
+      return data
+        .filter(filterPredicate)
+        .sort(sortComparator)
+    }, [data, sortComparator, filterPredicate])
+    
+  return <Table data={transformedData} />
+}
+```
+
+### `useRef` - memoization of whatever across re-renders
+
+Useful for referencing the *exact* same thing (points to the same place in the memory).
+Has the ability to be manipuated without causing a re-render.
+
+It also allows saving references to DOM nodes rendered from the JSX.
+
+Hook value Can **only** be accessed by `.current` 
+
+#### will not cause a re-render
+```js
+function User() {
+  const name = useRef("Shira")
+
+  useEffect(() => {
+    setTimeout(() => {
+      name.current = "Ben"
+    }, 5000)
+  }, [])
+
+    return <div>{name.current}</div>
+```
+
+#### DOM refs
+
+```js
+function User() {
+  const inputRef = useRef()
+
+  useEffect(() => {
+    setTimeout(() =>  inputRef.current.focus()  , 2000)
+  }, [])
+
+  return <input ref={inputRef} />
 ```

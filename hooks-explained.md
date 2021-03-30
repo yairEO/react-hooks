@@ -141,6 +141,8 @@ const Example = ({ value = 1 }) => {
 }
 ```
 
+<br><br>
+
 Can set as many `useState` as you want
 
 #### Update (set) state
@@ -168,6 +170,8 @@ const update = () =>
   // add a new item to the array (at the end)
   setState(lastValue => [...lastValue, 4] )
 ```
+
+<br><br>
 
 ### `useEffect` - Listening to changes in props or state (running side-effects code)
 
@@ -205,6 +209,8 @@ const Example = ({ data = [], getServerData, id }) => {
 }
 ```
 
+<br><br>
+
 ### `useCallback` - memoization of functions
 
 Useful when definding function which will be passed down as props (to children components)
@@ -225,6 +231,8 @@ const Example = ({ value = 1 }) => {
 }
 ```
 
+<br><br>
+
 ### `useMemo` - memoization of values returned by a function (similar to `useCallback`)
 
 Useful for expensive computations or to simply persist things across renders.
@@ -240,6 +248,9 @@ const Example = ({ data, sortComparator, filterPredicate }) => {
   return <Table data={transformedData} />
 }
 ```
+
+
+<br><br>
 
 ### `useRef` - memoization of whatever across re-renders
 

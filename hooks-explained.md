@@ -341,7 +341,7 @@ function useKeyPress( targetKey ) {
   const [keyPressed, setKeyPressed] = useState(false)
 
   // If pressed key is our target key - set to true
-  function downHandler({ key }) {
+  const downHandler = ({ key }) => {
     if (key === targetKey) 
       setKeyPressed(true)
   }
@@ -374,14 +374,13 @@ export default useKeyPress
 <td valign="top">
 
 ```js
-import { useState, useEffect } from 'react'
 import useKeyPress from './useKeyPress'
 
 // Usage
 function App() {
   // Call hook for each key that we'd like to monitor
-  const happyPress = useKeyPress('enter')
-  const escPress = useKeyPress('esc')
+  const happyPress = useKeyPress('Enter')
+  const escPress = useKeyPress('Escape')
 
   return <div>
       {happyPress && '😊'}

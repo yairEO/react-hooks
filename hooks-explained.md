@@ -225,6 +225,11 @@ const Example = ({ value = 1 }) => {
   const update = useCallback(() => {
     setCounter(lastValue => lastValue + 1) 
   }, [])
+
+  // if the "value" prop is changed then set the counter to the new value (which will cause a re-render)
+  useEffect(() => {
+    setCounter(value)
+  }, [value])
   
   // this is important because the `update` variables never changes, therefore the <Child> compoent will not get a new "onClick" 
   // callback every time the <Example> component is re-rendred.

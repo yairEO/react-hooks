@@ -276,16 +276,19 @@ Hook value Can **only** be accessed by `.current`
 
 #### will not cause a re-render
 ```js
-function User() {
-  const name = useRef("Shira")
+function User({ name }) {
+  const isMountedRef = useRef(1)
 
   useEffect(() => {
-    setTimeout(() => {
-      name.current = "Ben"
-    }, 5000)
-  }, [])
+     if( isMountedRef.current >= 5 ){
+       console.log( name )
+     }
+     
+     isMountedRef.current++
+  }, [name])
 
-    return <div>{name.current}</div>
+  return <div>{name}</div>
+}
 ```
 
 #### DOM refs

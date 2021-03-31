@@ -238,6 +238,8 @@ const Example = ({ value = 1 }) => {
 
 Useful for expensive computations or to simply persist things across renders.
 
+⚠️ `React.memo()` is not the same as the `useMemo` Hook and it used for shallow comparison of props.
+
 ```js
 const Example = ({ data, sortComparator, filterPredicate }) => {
   const transformedData = useMemo(() => {

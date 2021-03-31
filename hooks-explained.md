@@ -17,7 +17,7 @@
 
 ## Moving away from Class-Components
 
-React has shifted away from writing components(since `16.8`) as `class` towards `functional` components
+React has shifted away from writing components (since `16.8`) as `class` towards `functional` components
 
 > Classes confuse both people and machines: You have to understand how this works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers etc.
 Also, classes don’t minify very well, and they make hot reloading flaky and unreliable.
@@ -72,7 +72,7 @@ class Example extends React.Component {
 <td valign="top">
 
 ```js
-import React, { useState, useEffect, useCallback } from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 
 function Example() {
   const [count, setCount] = useState(0)
@@ -100,7 +100,7 @@ function Example() {
 
 ## Why hooks?
 
-React components almost always re-render at some point. Remember that every component is just a function, so whenever 
+React components almost always re-render at some point. Remember that every component is **just a function**, so whenever 
 the component is called again, the function executes and a new scope within the function is created.
 
 Hooks allows to ***persist*** values throughout those re-renders, so a component functionm can be called a 100 times

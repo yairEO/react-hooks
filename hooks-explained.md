@@ -5,7 +5,8 @@
 <h1 align=center>React Hooks - 101</h1>
 
 ### Links:
-* https://medium.com/@vcarl/everything-you-need-to-know-about-react-hooks-8f680dfd4349
+* [Everything you need to know about react hooks](https://medium.com/@vcarl/everything-you-need-to-know-about-react-hooks-8f680dfd4349)
+* [Official Docs](https://reactjs.org/docs/hooks-reference.html)
 
 ### Table of contents:
 * [Moving away from Class-Components](#moving-away-from-class-components)

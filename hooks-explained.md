@@ -272,9 +272,9 @@ Has the ability to be manipuated without causing a re-render.
 
 It also allows saving references to DOM nodes rendered from the JSX.
 
-Hook value Can **only** be accessed by `.current` 
+This hook's value Can **only** be accessed by `.current` 
 
-#### will not cause a re-render
+#### Logs the "name" prop only after at at least 5 times it was changed 
 ```js
 function User({ name }) {
   const isMountedRef = useRef(1)

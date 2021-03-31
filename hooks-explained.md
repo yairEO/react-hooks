@@ -11,9 +11,14 @@
 ### Table of contents:
 * [Moving away from Class-Components](#hooks-explained.md#moving-away-from-class-components)
 * [Why hooks?](#why-hooks)
-* [Importing Hooks](#xxx)
-* [Rules to follow](#xxx)
-* [A hook for every situation](#xxx)
+* [Importing Hooks](#mporting-hooks)
+* [Rules to follow](#rules-to-follow)
+* [A hook for every situation](#a-hook-for-every-situation)
+  * [useState](#useState)
+  * [useEffect](#useEffect)
+  * [useCallback](#useCallback)
+  * [useMemo](#useMemo)
+  * [useRef](#useRef)
 
 ## Moving away from Class-Components
 
@@ -134,7 +139,8 @@ import React, { useState, useEffect, useCallback, ... } from 'react'
 
 <br><br>
 
-### `useState` - Basic state
+### `useState` 
+**Basic state**
 
 #### Define component-level state
 ```js
@@ -174,7 +180,8 @@ const update = () =>
 
 <br><br>
 
-### `useEffect` - Listening to changes in props or state (running side-effects code)
+### `useEffect` 
+**Listening to changes in props or state (running side-effects code)**
 
 Can set as many `useEffect` as you want, each doing its own "job".
 `useEffect` runs after the *first* render.
@@ -217,7 +224,8 @@ const Example = ({ data = [], getServerData, id }) => {
 
 <br><br>
 
-### `useCallback` - memoization of functions
+### `useCallback`
+**memoization of functions**
 
 Useful when definding function which will be passed down as props (to children components)
 
@@ -244,7 +252,8 @@ const Example = ({ value = 1 }) => {
 
 <br><br>
 
-### `useMemo` - memoization of values returned by a function (similar to `useCallback`)
+### `useMemo` 
+**memoization of values returned by a function (similar to `useCallback`)**
 
 Useful for expensive computations or to simply persist things across renders.
 
@@ -265,7 +274,8 @@ const Example = ({ data, sortComparator, filterPredicate }) => {
 
 <br><br>
 
-### `useRef` - memoization of whatever across re-renders
+### `useRef` 
+**memoization of whatever across re-renders**
 
 Useful for referencing the *exact* same thing (points to the same place in the memory).
 Has the ability to be manipuated without causing a re-render.
@@ -291,17 +301,22 @@ function User({ name }) {
 }
 ```
 
-#### DOM refs
+#### DOM refs - focus input after N seconds
 
 ```js
 function User() {
   const inputRef = useRef()
 
   useEffect(() => {
-    setTimeout(() =>  inputRef.current.focus()  , 2000)
+    setTimeout(() =>  inputRef.current.focus(), 2000)
   }, [])
 
-  return <input ref={inputRef} />
+  return (
+    <form>
+      <input ref={inputRef} />
+    </form>
+  )
+}
 ```
 
 <br><br>

@@ -203,10 +203,15 @@ const Example = ({ data = [], getServerData, id }) => {
   useEffect(() => {
     console.log( id )
   }, [id])
-
-  const update = () => setList(lastValue => lastValue + 1) 
   
-  return <button onClick={update}>list {id}: {myState.join(",")}</button>
+  useEffect(() => {
+     setList(data)
+  }, [data])
+  
+
+  const update = () => setList(lastValue => [...lastValue, 1]) 
+  
+  return <button onClick={update}>list {id}: {list.join(",")}</button>
 }
 ```
 

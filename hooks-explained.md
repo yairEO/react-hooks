@@ -9,8 +9,8 @@
 * [Official Docs](https://reactjs.org/docs/hooks-reference.html)
 
 ### Table of contents:
-* [Moving away from Class-Components](#moving-away-from-class-components)
-* [Why hooks?](#xxx)
+* [Moving away from Class-Components](#hooks-explained.md#moving-away-from-class-components)
+* [Why hooks?](#why-hooks)
 * [Importing Hooks](#xxx)
 * [Rules to follow](#xxx)
 * [A hook for every situation](#xxx)

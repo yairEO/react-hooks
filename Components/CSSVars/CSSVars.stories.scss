@@ -1,0 +1,9 @@
+.story-tools-cssvars-basic-example {
+  > div {
+    color: var(--color);
+    background: var(--bg);
+    padding: 3px 6px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+}

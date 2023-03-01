@@ -1,8 +1,9 @@
 /**
  * detects when a (CSS) sticky element changes "sticky" state
  * @param {object} ref optional react ref. if not provided, a new one will be used instead.
+ * @param {object} observerSettings Observer's settings object
 */
-const useDetectSticky = (ref) => {
+const useDetectSticky = (ref, observerSettings = {threshold: [1]}) => {
   const [isSticky, setIsSticky] = useState(false)
   const newRef = useRef()
   ref ||= newRef;
@@ -12,10 +13,7 @@ const useDetectSticky = (ref) => {
     const cachedRef = ref.current,
           observer = new IntersectionObserver(
             ([e]) => setIsSticky(e.intersectionRatio < 1),
-            {
-              threshold: [1],
-              // rootMargin: '-1px 0px 0px 0px',  // alternativly, use this and set `top:0` in the CSS
-            }
+            observerSettings
           )
 
     observer.observe(cachedRef)
